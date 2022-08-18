@@ -2,9 +2,9 @@
 
 function twoNumberSum(arr, targetSum){
   // Loop through array to find if TWO integers add to target sum
-    for (let i = 0; i < arr.length - 1; i++){
+    for (let i = 0; i < arr.length; i++){
       let numOne = arr[i]
-      for (let x = 1; x < arr.length; x++){
+      for (let x = i + 1; x < arr.length; x++){
         let numTwo = arr[x]
         if (numOne + numTwo === targetSum){
           return [numOne, numTwo]
