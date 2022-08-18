@@ -1,22 +1,19 @@
-// Min to Front
-// Given an array of comparable values, move the lowest element to array’s front, shifting backward any elements previously ahead of it. Do not otherwise change the array’s order. Given [4,2,1,3,5], change it to [1,4,2,3,5] and return it. As always, do this without using built-in functions.
+// Two number sum
 
-function minToFront (arr){
-  let min = arr[0]
-  let idx = 0
-  for (var i = 1; i < arr.length; i++){
-    if (arr[i] < min) {
-        min = arr[i];
-        idx = i;
+function twoNumberSum(arr, targetSum){
+  // Loop through array to find if TWO integers add to target sum
+    for (let i = 0; i < arr.length - 1; i++){
+      let numOne = arr[i]
+      for (let x = 1; x < arr.length; x++){
+        let numTwo = arr[x]
+        if (numOne + numTwo === targetSum){
+          return [numOne, numTwo]
+        }
+      }
     }
-  }
-  for (var x = idx; x > 0; x--){
-    var temp = arr[x];
-    arr[x] = arr[x-1];
-    arr[x-1] = temp;
-}
-return arr;
-
+    return []
+  // if two integers add to target sum, return them in array if not return empty array
 }
 
-console.log(minToFront([4,7,2,4,9]))
+
+console.log(twoNumberSum([1,3,5,2,4], 4 ))
