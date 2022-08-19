@@ -18,19 +18,37 @@
 
 // console.log(twoNumberSum([1,3,5,2,4], 4 ))
 
-// Validate subsequence
-function isValidSubsequence(arr, sub){
-  // look through sub to see values correspond to the order in original
-  let arrIdx = 0
-  let subIdx = 0
-  while (subIdx < sub.length && arrIdx < arr.length){
-    if (sub[subIdx] === arr[arrIdx]){
-      subIdx++
-      arrIdx++
-    }
-    return subIdx === sub.length
-  }
-  }
+// // Validate subsequence
+// function isValidSubsequence(arr, sub){
+//   // look through sub to see values correspond to the order in original
+//   let arrIdx = 0
+//   let subIdx = 0
+//   while (subIdx < sub.length && arrIdx < arr.length){
+//     if (sub[subIdx] === arr[arrIdx]){
+//       subIdx++
+//       arrIdx++
+//     }
+//     return subIdx === sub.length
+//   }
+//   }
 
 
-console.log(isValidSubsequence([1,4,2,6,3,9], [1,4,3]))
+// console.log(isValidSubsequence([1,4,2,6,3,9], [1,4,3]))
+
+
+// Sorted array squared
+
+function sortedSquared(arr){
+  let finalArr = []
+  // loop through array and sort in ascending order
+   let newArr = arr.sort()
+  // square the new array
+  for (let i = 0; i < newArr.length; i++){
+   let squared = newArr[i] * newArr[i]
+    finalArr.push(squared)
+    console.log(finalArr)
+  }
+  // sort in ascending order the new array
+}
+
+sortedSquared([1,5,2,6,3])
