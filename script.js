@@ -38,17 +38,14 @@
 
 // Sorted array squared
 
-function sortedSquared(arr){
-  let finalArr = []
-  // loop through array and sort in ascending order
-   let newArr = arr.sort()
-  // square the new array
-  for (let i = 0; i < newArr.length; i++){
-   let squared = newArr[i] * newArr[i]
-    finalArr.push(squared)
-    console.log(finalArr)
+function sortedSquaredArray(array) {
+  let sortedArr = array.sort()
+  newArr = []
+  for (let i = 0; i < sortedArr.length; i++){
+     newArr.push(sortedArr[i] * sortedArr[i])
+     newArr.sort((a,b) => a-b)
   }
-  // sort in ascending order the new array
+  return newArr
 }
 
-sortedSquared([1,5,2,6,3])
+console.log(sortedSquaredArray([1,5,2,6,3]))
