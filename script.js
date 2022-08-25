@@ -38,14 +38,33 @@
 
 // Sorted array squared
 
-function sortedSquaredArray(array) {
-  let sortedArr = array.sort()
-  newArr = []
-  for (let i = 0; i < sortedArr.length; i++){
-     newArr.push(sortedArr[i] * sortedArr[i])
-     newArr.sort((a,b) => a-b)
+// function sortedSquaredArray(array) {
+//   let sortedArr = array.sort()
+//   newArr = []
+//   for (let i = 0; i < sortedArr.length; i++){
+//      newArr.push(sortedArr[i] * sortedArr[i])
+//      newArr.sort((a,b) => a-b)
+//   }
+//   return newArr
+// }
+
+// console.log(sortedSquaredArray([1,5,2,6,3]))
+
+// Tournament Winner Algo
+
+
+// Given a numerical array, reverse the order of values, in-place. The reversed array should have the same length, with existing elements moved to other indices so that order of elements is reversed. Working 'in-place' means that you cannot use a second 
+// array – move values within the array that you are given. As always, do not use built-in array functions such as splice().
+
+
+function reverseArray (arr){
+  let newArr = []
+  // reverse array
+  for (let i = arr.length - 1; i >= 0; i--){
+    newArr.push(arr[i])
+    console.log(newArr)
   }
-  return newArr
+  // move elements around and keep same length
 }
 
-console.log(sortedSquaredArray([1,5,2,6,3]))
+reverseArray([1,3,5,2,4])
