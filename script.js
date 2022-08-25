@@ -77,16 +77,40 @@
 // pushFront([5,7,2,3], 8) => [8,5,7,2,3]
 // pushFront([99], 7) => [7,99]
 
-function pushFront(arr, val){
-  // insert value at the beginning of the array
-  // array size will change
-  let temp = arr[0]
-  for (let i = arr.length; i >= 0; i--){
-   arr[i] = arr[i - 1]
-  }
-  arr[0]= val
-  return arr
+// function pushFront(arr, val){
+//   // insert value at the beginning of the array
+//   // array size will change
+//   let temp = arr[0]
+//   for (let i = arr.length; i >= 0; i--){
+//    arr[i] = arr[i - 1]
+//   }
+//   arr[0]= val
+//   return arr
  
-}
+// }
 
-console.log(pushFront([1,2,3,4],3))
+// console.log(pushFront([1,2,3,4],3))
+
+
+// Given an array, remove and return the value at the beginning of the array. Prove the value is removed from the array by printing it. You may use .pop(), you are able do this without it though!
+
+// Examples:
+
+// popFront([0,5,10,15]) => 0 returned, with [5,10,15] printed in the function
+// popFront([4,5,7,9]) => 4 returned, with [5,7,9] printed in the function
+
+
+// function popFront(arr){
+//   let firstVal = arr[0]
+//   for (let i = 1; i < arr.length; i++){
+//     // starting at i = 1 because we want to shift the values to the left by one. 
+//     arr[i - 1] = arr[i]
+//     // elements have been shifted to the left- now I want to chop off the duplicate at the end.
+//   }
+//   arr.length = arr.length - 1
+//   console.log(arr)
+//   return firstVal
+// }
+
+
+// console.log(popFront([1,3,5,6,2]))
