@@ -57,14 +57,36 @@
 // array – move values within the array that you are given. As always, do not use built-in array functions such as splice().
 
 
-function reverseArray (arr){
-  let newArr = []
-  // reverse array
-  for (let i = arr.length - 1; i >= 0; i--){
-    newArr.push(arr[i])
-    console.log(newArr)
+// function reverseArray (arr){
+//   let newArr = []
+//   // reverse array
+//   for (let i = arr.length - 1; i >= 0; i--){
+//     newArr.push(arr[i])
+//     console.log(newArr)
+//   }
+//   // move elements around and keep same length
+// }
+
+// reverseArray([1,3,5,2,4])
+
+// Push Front
+// Given an array and an additional value, insert this value at the beginning of the array. You may use .push(), you are able do this without it though!
+
+// Examples:
+
+// pushFront([5,7,2,3], 8) => [8,5,7,2,3]
+// pushFront([99], 7) => [7,99]
+
+function pushFront(arr, val){
+  // insert value at the beginning of the array
+  // array size will change
+  let temp = arr[0]
+  for (let i = arr.length; i >= 0; i--){
+   arr[i] = arr[i - 1]
   }
-  // move elements around and keep same length
+  arr[0]= val
+  return arr
+ 
 }
 
-reverseArray([1,3,5,2,4])
+console.log(pushFront([1,2,3,4],3))
