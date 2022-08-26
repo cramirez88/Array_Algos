@@ -114,3 +114,25 @@
 
 
 // console.log(popFront([1,3,5,6,2]))
+
+
+// Insert At
+// Given an array, index, and additional value, insert the value into array at given index. You can think of pushFront(arr,val) as equivalent to insertAt(arr,0,val). You may use .push(), you are able do this without it though!
+
+// Examples:
+
+// insertAt([100,200,5], 2, 311) => [100,200,311,5]
+// insertAt([9,33,7], 1, 42) => [9,42,33,7]
+
+// function insertAt(arr, idx, val){
+//   // loop through my array until I find the given index and place my value in that index.
+//   for (let i = arr.length; i >= idx; i--){
+//     arr[i] = arr[i - 1]
+//   }
+//   // have my for loop going to the left because I want to create a an extra index to keep all values prior to insertion
+//   arr[idx] = val
+//   // return array
+//   return arr
+// }
+
+// console.log(insertAt([1,2,4,3], 1, 43))
