@@ -224,18 +224,35 @@
 // removeDupes([9,19,19,19,19,19,29]) => [9,19,29]
 
 
-function removeDuplicates(arr){
-  // given a sorted array (all duplicate values will be coupled together) delete the duplicated values
-  // loop through array -> find a way to keep track of the repeated values -> if you encounter a duplicate remove it
-  let individualValues = []
-  for ( let i = 0; i < arr.length; i++){
-    if (arr[i + 1] != arr[i]){
-      individualValues.push(arr[i])
-    }
+// function removeDuplicates(arr){
+//   // given a sorted array (all duplicate values will be coupled together) delete the duplicated values
+//   // loop through array -> find a way to keep track of the repeated values -> if you encounter a duplicate remove it
+//   let individualValues = []
+//   for ( let i = 0; i < arr.length; i++){
+//     if (arr[i + 1] != arr[i]){
+//       individualValues.push(arr[i])
+//     }
+//   }
+//   return individualValues
+// }
+
+// console.log(removeDuplicates([1,2,3,3,4,4,5,6,7,7,]))
+
+// Given a numerical array, reverse the order of values, in-place. The reversed array should have the same length, with existing elements moved to other indices so that order of elements is reversed. Working 'in-place' means that you cannot use a second 
+// array – move values within the array that you are given. As always, do not use built-in array functions such as splice().
+
+
+function reverseArray(arr){
+  
+  for (let i = 0; i < arr.length/2; i++){
+    let temp = arr[i]
+    arr[i] = arr[arr.length - 1 - i]
+    arr[arr.length - 1 - i] = temp
   }
-  return individualValues
+  return arr
 }
 
-console.log(removeDuplicates([1,2,3,3,4,4,5,6,7,7,]))
+console.log(reverseArray([1,2,3,4,5,6]))
+
 
 
