@@ -145,19 +145,19 @@
 // removeAt([1000,3,204,77], 1) => 3 returned, with [1000,204,77] printed in the function
 // removeAt([8,20,55,44,98], 3) => 44 returned, with [8,20,55,98] printed in the function
 
-function removeAt(arr, idx){
-  // loop through array until you match the index given
-  for (let i = idx; i < arr.length; i++){
-    arr[i] = arr[i + 1]
-  }
-  arr.length = arr.length - 1
-  return arr
-  // if you find the index given remove it from the array
-  // print array 
-  // return deleted index value
-}
+// function removeAt(arr, idx){
+//   // loop through array until you match the index given
+//   for (let i = idx; i < arr.length; i++){
+//     arr[i] = arr[i + 1]
+//   }
+//   arr.length = arr.length - 1
+//   return arr
+//   // if you find the index given remove it from the array
+//   // print array 
+//   // return deleted index value
+// }
 
-console.log(removeAt([1,4,2,3,2], 2))
+// console.log(removeAt([1,4,2,3,2], 2))
 
 
 // Min to Front
@@ -189,4 +189,29 @@ console.log(removeAt([1,4,2,3,2], 2))
 // }
 
 // console.log(minToFront([2,4,6,3,1]))
+
+
+// BONUS: Swap Pairs
+// Swap positions of successive pairs of values of given array. If length is odd, do not change the final element.
+
+// Examples:
+
+// insertAt([1,2,3,4]) => [2,1,4,3]
+// insertAt(["Brendan",true,42]) => [true,"Brendan",42]
+
+
+function swapPairs(arr){
+  // loop through array and swap succesive pairs with one another
+  for (let i = 0; i < arr.length; i+=2){
+    if(arr.length - 1 % 2 !== 0){
+      console.log(arr[arr.length] = arr[arr.length - 1])
+    }
+    [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]]
+    arr.length = arr.length - 1
+  }
+  return arr
+  // if array has an odd number of elements, maintain the last element as is
+}
+console.log(swapPairs([1,3,2,56, 45, 98,4]))
+
 
