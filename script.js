@@ -200,18 +200,42 @@
 // insertAt(["Brendan",true,42]) => [true,"Brendan",42]
 
 
-function swapPairs(arr){
-  // loop through array and swap succesive pairs with one another
-  for (let i = 0; i < arr.length; i+=2){
-    if(arr.length - 1 % 2 !== 0){
-      console.log(arr[arr.length] = arr[arr.length - 1])
+// function swapPairs(arr){
+//   // loop through array and swap succesive pairs with one another
+//   for (let i = 0; i < arr.length; i+=2){
+//     if(arr.length - 1 % 2 !== 0){
+//       console.log(arr[arr.length] = arr[arr.length - 1])
+//     }
+//     [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]]
+//     arr.length = arr.length - 1
+//   }
+//   return arr
+//   // if array has an odd number of elements, maintain the last element as is
+// }
+// console.log(swapPairs([1,3,2,56, 45, 98,4]))
+
+
+// BONUS: Remove Duplicates
+// Given a sorted array, remove duplicate values. Because array elements are already in order, all duplicate values will be grouped together. If you already made the Remove At function, you are welcome to use that! If you solved this using nested loops, for an extra challenge, try to do it without any nested loops!
+
+// Examples:
+
+// removeDupes([-2,-2,3.14,5,5,10]) => [-2,3.14,5,10]
+// removeDupes([9,19,19,19,19,19,29]) => [9,19,29]
+
+
+function removeDuplicates(arr){
+  // given a sorted array (all duplicate values will be coupled together) delete the duplicated values
+  // loop through array -> find a way to keep track of the repeated values -> if you encounter a duplicate remove it
+  let individualValues = []
+  for ( let i = 0; i < arr.length; i++){
+    if (arr[i + 1] != arr[i]){
+      individualValues.push(arr[i])
     }
-    [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]]
-    arr.length = arr.length - 1
   }
-  return arr
-  // if array has an odd number of elements, maintain the last element as is
+  return individualValues
 }
-console.log(swapPairs([1,3,2,56, 45, 98,4]))
+
+console.log(removeDuplicates([1,2,3,3,4,4,5,6,7,7,]))
 
 
