@@ -282,6 +282,21 @@
 //   console.log(removeDuplicates([1,1,1,1,1,1,3,4,2,5]))
 
 
+// Given an array nums. We define a running sum of an array as runningSum[i] = sum(nums[0]…nums[i]).
+
+// Return the running sum of nums.
+
+var runningSum = function(nums) {
+  //     loop through nums array
+      for (let i = 1; i < nums.length; i++){
+          nums[i] = nums[i - 1] + nums[i] 
+      }
+      return nums
+  };
+
+  console.log(runningSum([1,2,3,4]))
+
+
 
 
 
