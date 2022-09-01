@@ -329,6 +329,34 @@
 // console.log(pivotIndex([1,7,3,6,5,6]))
 
 
+// FRONTS 
+// Use classes, attributes, and methods in the JavaScript language for all challenges. Use only a single JavaScript file for this assignment. All examples are done in order, starting with a new instance of the SLL class.
+
+// Add Front
+// Write a method that accepts a value and create a new node, assign it to the list head, and return a pointer to the new head node.
+
+class SLLNode {
+  constructor(data){
+    this.data = data
+    this.next = null
+  }
+  
+}
+
+class SLL {
+  constructor(){
+    this.head = null
+  }
+  addFront(val){
+    let newNode = new SLLNode(val)
+    newNode.next = this.head
+    this.head = newNode
+    return this.head
+  }
+}
+let newLinkedList = new SLL()
+console.log(newLinkedList.addFront(18))
+
 
 
 
