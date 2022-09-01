@@ -354,8 +354,10 @@ class SLL {
     return this.head
   }
 }
-let newLinkedList = new SLL()
+  let newLinkedList = new SLL()
 console.log(newLinkedList.addFront(18))
+console.log(newLinkedList.addFront(5))
+console.log(newLinkedList.addFront(73))
 
 
 
