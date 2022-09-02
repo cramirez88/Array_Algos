@@ -365,6 +365,15 @@ class SLL {
     removedHead.next = null
     return this.head
   }
+
+  front(){
+    // write a method to return the value at the head of the list
+    // if list is empty, return null
+    if (this.head === null){
+      return null
+    } 
+    return this.head.data
+  }
 }
   let newLinkedList = new SLL()
 console.log(newLinkedList.addFront(18))
@@ -372,6 +381,9 @@ console.log(newLinkedList.addFront(5))
 console.log(newLinkedList.addFront(73))
 console.log(newLinkedList.removeFront())
 console.log(newLinkedList.removeFront())
+console.log(newLinkedList.front())
+console.log(newLinkedList.removeFront())
+console.log(newLinkedList.front())
 
 
 
