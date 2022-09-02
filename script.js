@@ -353,11 +353,25 @@ class SLL {
     this.head = newNode
     return this.head
   }
+  removeFront(){
+    // if list is empty, return null
+    if(this.head === null){
+      return null
+    }
+    // write a method to remove the head node and return the new list
+    //  to remove a head node, we will have to set the next node to null- which will end the linkedlist, however, we need to add a new head in order create a new linkedlist
+    let removedHead = this.head
+    this.head = removedHead.next
+    removedHead.next = null
+    return this.head
+  }
 }
   let newLinkedList = new SLL()
 console.log(newLinkedList.addFront(18))
 console.log(newLinkedList.addFront(5))
 console.log(newLinkedList.addFront(73))
+console.log(newLinkedList.removeFront())
+console.log(newLinkedList.removeFront())
 
 
 
