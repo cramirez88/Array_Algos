@@ -409,17 +409,29 @@
 function mergeSortedArrays(arr, arr2){
   // create new array variable to merge
   let merging = []
-  // loop through each array
-  for (let i = 0; i < arr.length; i++){
-    merging.push(arr[i])
-  }
-  for (let j = 0; j < arr2.length; j++){
-    merging.push(arr2[j])
+  // loop through each array and ensure that new array is in ascending order
+  // push to merging array
+  let firstValofArr = arr[0]
+  let firstValofArr2 = arr2[0]
+  let i = 1
+  let j = 1
+  while (firstValofArr || firstValofArr2){
+   if (firstValofArr < firstValofArr2){
+    merging.push(firstValofArr)
+    firstValofArr = arr[i]
+    i++
+   }else {
+    merging.push(firstValofArr2)
+    firstValofArr2 = arr2[j]
+    j++
+   }
   }
   return merging
 }
 
 console.log(mergeSortedArrays([1,2,3,4], [2,6,7]))
+
+// Big O is O(n + m)
 
 
 
