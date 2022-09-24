@@ -391,13 +391,13 @@
 
 function reverseString(str){
   // find a way to put string in an array to traverse through
- let newArr = []
+ let newArr = [] //o(n)
 //  console.log(newArr)
   // loop through array and reverse the order
   for (let i = str.length - 1; i >= 0 ;i--){
     newArr.push(str[i])
   }
-  return newArr.toString()
+  return newArr.join('')
   // remmove array and join string
 }
 
