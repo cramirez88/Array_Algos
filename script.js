@@ -335,58 +335,73 @@
 // Add Front
 // Write a method that accepts a value and create a new node, assign it to the list head, and return a pointer to the new head node.
 
-class SLLNode {
-  constructor(data){
-    this.data = data
-    this.next = null
-  }
+// class SLLNode {
+//   constructor(data){
+//     this.data = data
+//     this.next = null
+//   }
   
+// }
+
+// class SLL {
+//   constructor(){
+//     this.head = null
+//   }
+//   addFront(val){
+//     let newNode = new SLLNode(val)
+//     newNode.next = this.head
+//     this.head = newNode
+//     return this.head
+//   }
+//   removeFront(){
+//     // if list is empty, return null
+//     if(this.head === null){
+//       return null
+//     }
+//     // write a method to remove the head node and return the new list
+//     //  to remove a head node, we will have to set the next node to null- which will end the linkedlist, however, we need to add a new head in order create a new linkedlist
+//     let removedHead = this.head
+//     this.head = removedHead.next
+//     removedHead.next = null
+//     return this.head
+//   }
+
+//   front(){
+//     // write a method to return the value at the head of the list
+//     // if list is empty, return null
+//     if (this.head === null){
+//       return null
+//     } 
+//     return this.head.data
+//   }
+// }
+//   let newLinkedList = new SLL()
+// console.log(newLinkedList.addFront(18))
+// console.log(newLinkedList.addFront(5))
+// console.log(newLinkedList.addFront(73))
+// console.log(newLinkedList.removeFront())
+// console.log(newLinkedList.removeFront())
+// console.log(newLinkedList.front())
+// console.log(newLinkedList.removeFront())
+// console.log(newLinkedList.front())
+
+
+// Create a function that reverses a string
+
+
+function reverseString(str){
+  // find a way to put string in an array to traverse through
+ let newArr = []
+//  console.log(newArr)
+  // loop through array and reverse the order
+  for (let i = str.length - 1; i >= 0 ;i--){
+    newArr.push(str[i])
+  }
+  return newArr.toString()
+  // remmove array and join string
 }
 
-class SLL {
-  constructor(){
-    this.head = null
-  }
-  addFront(val){
-    let newNode = new SLLNode(val)
-    newNode.next = this.head
-    this.head = newNode
-    return this.head
-  }
-  removeFront(){
-    // if list is empty, return null
-    if(this.head === null){
-      return null
-    }
-    // write a method to remove the head node and return the new list
-    //  to remove a head node, we will have to set the next node to null- which will end the linkedlist, however, we need to add a new head in order create a new linkedlist
-    let removedHead = this.head
-    this.head = removedHead.next
-    removedHead.next = null
-    return this.head
-  }
-
-  front(){
-    // write a method to return the value at the head of the list
-    // if list is empty, return null
-    if (this.head === null){
-      return null
-    } 
-    return this.head.data
-  }
-}
-  let newLinkedList = new SLL()
-console.log(newLinkedList.addFront(18))
-console.log(newLinkedList.addFront(5))
-console.log(newLinkedList.addFront(73))
-console.log(newLinkedList.removeFront())
-console.log(newLinkedList.removeFront())
-console.log(newLinkedList.front())
-console.log(newLinkedList.removeFront())
-console.log(newLinkedList.front())
-
-
-
+console.log(reverseString('Christian Daniela'))
 
 
 
