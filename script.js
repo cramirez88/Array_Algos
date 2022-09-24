@@ -389,19 +389,37 @@
 // Create a function that reverses a string
 
 
-function reverseString(str){
-  // find a way to put string in an array to traverse through
- let newArr = [] //o(n)
-//  console.log(newArr)
-  // loop through array and reverse the order
-  for (let i = str.length - 1; i >= 0 ;i--){
-    newArr.push(str[i])
+// function reverseString(str){
+//   // find a way to put string in an array to traverse through
+//  let newArr = [] //o(n)
+// //  console.log(newArr)
+//   // loop through array and reverse the order
+//   for (let i = str.length - 1; i >= 0 ;i--){
+//     newArr.push(str[i])
+//   }
+//   return newArr.join('')
+//   // remmove array and join string
+// }
+
+// console.log(reverseString('Christian Daniela'))
+
+
+// Merge sorted arrays
+
+function mergeSortedArrays(arr, arr2){
+  // create new array variable to merge
+  let merging = []
+  // loop through each array
+  for (let i = 0; i < arr.length; i++){
+    merging.push(arr[i])
   }
-  return newArr.join('')
-  // remmove array and join string
+  for (let j = 0; j < arr2.length; j++){
+    merging.push(arr2[j])
+  }
+  return merging
 }
 
-console.log(reverseString('Christian Daniela'))
+console.log(mergeSortedArrays([1,2,3,4], [2,6,7]))
 
 
 
