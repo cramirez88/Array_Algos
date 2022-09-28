@@ -482,20 +482,32 @@
 
 // Given an array, find the first recurring character
 
+// function firstRecurringChar(arr){
+//   for (let i = 0; i < arr.length; i++){
+//     let firstChar = arr[i]
+//     for (let j = i + 1; j < arr.length; j++){
+//       let secondChar = arr[j]
+//       if (firstChar === secondChar){
+//         return[firstChar, secondChar]
+//       }
+//     }
+//   }
+//   return 'No repeats'
+// }
+
+
 function firstRecurringChar(arr){
+  let map = {}
   for (let i = 0; i < arr.length; i++){
-    let firstChar = arr[i]
-    for (let j = i + 1; j < arr.length; j++){
-      let secondChar = arr[j]
-      if (firstChar === secondChar){
-        return[firstChar, secondChar]
-      }
+    if(map[arr[i]] !== undefined){
+      return arr[i]
+    }else{
+      map[arr[i]] = i
     }
   }
-  return 'No repeats'
 }
 
-console.log(firstRecurringChar([-4,4,1,2,3,5,1,2,4 ]))
+console.log(firstRecurringChar([7,7,1,2,3,5,1,2,4 ]))
 
 
 
