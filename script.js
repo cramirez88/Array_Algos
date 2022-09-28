@@ -406,32 +406,98 @@
 
 // Merge sorted arrays
 
-function mergeSortedArrays(arr, arr2){
-  // create new array variable to merge
-  let merging = []
-  // loop through each array and ensure that new array is in ascending order
-  // push to merging array
-  let firstValofArr = arr[0]
-  let firstValofArr2 = arr2[0]
-  let i = 1
-  let j = 1
-  while (firstValofArr || firstValofArr2){
-   if (firstValofArr < firstValofArr2){
-    merging.push(firstValofArr)
-    firstValofArr = arr[i]
-    i++
-   }else {
-    merging.push(firstValofArr2)
-    firstValofArr2 = arr2[j]
-    j++
-   }
+// function mergeSortedArrays(arr, arr2){
+//   // create new array variable to merge
+//   let merging = []
+//   // loop through each array and ensure that new array is in ascending order
+//   // push to merging array
+//   let firstValofArr = arr[0]
+//   let firstValofArr2 = arr2[0]
+//   let i = 1
+//   let j = 1
+//   while (firstValofArr || firstValofArr2){
+//    if (firstValofArr < firstValofArr2){
+//     merging.push(firstValofArr)
+//     firstValofArr = arr[i]
+//     i++
+//    }else {
+//     merging.push(firstValofArr2)
+//     firstValofArr2 = arr2[j]
+//     j++
+//    }
+//   }
+//   return merging
+// }
+
+// console.log(mergeSortedArrays([1,2,3,4], [2,6,7]))
+
+// // Big O is O(n + m)
+
+
+// HASH TABLES
+
+
+// class HashTable {
+//   constructor(size){
+//     this.data = new Array(size);
+//   }
+
+//   _hash(key) {
+//     let hash = 0;
+//     for (let i =0; i < key.length; i++){
+//         hash = (hash + key.charCodeAt(i) * i) % this.data.length
+//     }
+//     return hash;
+//   }
+
+//   set(key, value){
+//     const index = this._hash(key)
+//     if(!this.data[index]){
+//       this.data[index] = []
+//     }
+//     this.data[index].push([key,value]) 
+//     // console.log(this.data)
+//     return this.data
+//   }
+
+//   get(key){
+//     const index = this._hash(key)
+//     if (this.data[index]){
+//       for(let i = 0; i < this.data[index].length; i++){
+//         if (this.data[index][i][0] === key){
+//           return this.data[index][i][1]
+//         }
+//       }
+//     }
+//     return undefined
+//   }
+// }
+
+// const myHashTable = new HashTable(2);
+// console.log(myHashTable.set('grapes', 10000))
+// console.log(myHashTable.set('grapesssss', 90))
+// console.log(myHashTable.get('grapes'))
+// console.log(myHashTable.set('apples', 9))
+// console.log(myHashTable.get('apples'))
+
+// Given an array, find the first recurring character
+
+function firstRecurringChar(arr){
+  for (let i = 0; i < arr.length; i++){
+    let firstChar = arr[i]
+    for (let j = i + 1; j < arr.length; j++){
+      let secondChar = arr[j]
+      if (firstChar === secondChar){
+        return[firstChar, secondChar]
+      }
+    }
   }
-  return merging
+  return 'No repeats'
 }
 
-console.log(mergeSortedArrays([1,2,3,4], [2,6,7]))
+console.log(firstRecurringChar([-4,4,1,2,3,5,1,2,4 ]))
 
-// Big O is O(n + m)
+
 
 
 
