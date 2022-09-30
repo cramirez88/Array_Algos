@@ -496,18 +496,61 @@
 // }
 
 
-function firstRecurringChar(arr){
-  let map = {}
-  for (let i = 0; i < arr.length; i++){
-    if(map[arr[i]] !== undefined){
-      return arr[i]
-    }else{
-      map[arr[i]] = i
-    }
-  }
-}
+// function firstRecurringChar(arr){
+//   let map = {}
+//   for (let i = 0; i < arr.length; i++){
+//     if(map[arr[i]] !== undefined){
+//       return arr[i]
+//     }else{
+//      console.log(map[arr[i]] = i) 
+//     }
+//   }
+// }
 
-console.log(firstRecurringChar([7,7,1,2,3,5,1,2,4 ]))
+// console.log(firstRecurringChar([10,2,3,4,5,6,10 ]))
+
+
+// function firstRecurringChar(arr){
+//   // find the first character tha repeats
+//   // using an object, push to it the index as key and number as value
+//   let map = {}
+//   // the key will be the index (i), the value will be the arr[i] value
+//   // to push to map, we will loop through arr BUT check to see if arr[i] in obj is repeating
+//   for (let i = 0; i < arr.length; i++){
+//     if(map[arr[i]] !== undefined){
+//       return arr[i]
+//     }else {
+//       map[arr[i]] = arr[i]
+//     }
+//   }
+//   // if it is repeating, return the arr[i]
+// }
+
+// console.log(firstRecurringChar([2,2,6,4,2,7])
+
+// Converting roman numerals to integers
+
+var romanToInt = function(s) {
+  let romanNumbers = {
+      "I": 1,
+      "V": 5,
+      "X": 10,
+      "L": 50,
+      "C": 100,
+      "D": 500,
+      "M": 1000
+  }
+  let val = 0
+  
+  for (let i = 0; i < s.length; i++){
+      if (romanNumbers[s[i]] < romanNumbers[s[i + 1]]){
+          val -= romanNumbers[s[i]]
+      }else {
+          val += romanNumbers[s[i]]
+      }
+  }
+  return val
+};
 
 
 
