@@ -578,12 +578,19 @@
 // console.log(getItem(2))
 
 // solve similar problem but using a map
-const itemss = new Map()
-itemss.set(1, {name: 'Christian', age: 25})
-itemss.set(2, {name: 'Daniela', age: 21})
-itemss.set(3, {name: 'Ana', age: 54})
-console.log(itemss.get(1))
+// const itemss = new Map()
+// itemss.set(1, {name: 'Christian', age: 25})
+// itemss.set(2, {name: 'Daniela', age: 21})
+// itemss.set(3, {name: 'Ana', age: 54})
+// console.log(itemss.get(1))
 
+
+// using Sets
+
+function removeDupes(arr){
+  return [...new Set(arr)]
+}
+console.log(removeDupes([1,2,3,2,4,5]))
 
 
 
