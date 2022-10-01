@@ -530,28 +530,61 @@
 
 // Converting roman numerals to integers
 
-var romanToInt = function(s) {
-  let romanNumbers = {
-      "I": 1,
-      "V": 5,
-      "X": 10,
-      "L": 50,
-      "C": 100,
-      "D": 500,
-      "M": 1000
-  }
-  let val = 0
+// var romanToInt = function(s) {
+//   let romanNumbers = {
+//       "I": 1,
+//       "V": 5,
+//       "X": 10,
+//       "L": 50,
+//       "C": 100,
+//       "D": 500,
+//       "M": 1000
+//   }
+//   let val = 0
   
-  for (let i = 0; i < s.length; i++){
-      if (romanNumbers[s[i]] < romanNumbers[s[i + 1]]){
-          val -= romanNumbers[s[i]]
-      }else {
-          val += romanNumbers[s[i]]
-      }
-  }
-  return val
-};
+//   for (let i = 0; i < s.length; i++){
+//       if (romanNumbers[s[i]] < romanNumbers[s[i + 1]]){
+//           val -= romanNumbers[s[i]]
+//       }else {
+//           val += romanNumbers[s[i]]
+//       }
+//   }
+//   return val
+// };
 
+// const items = [
+//   {
+//     id: 1,
+//     name: 'Test 1',
+//     description: 'Description 1'
+//   },
+//   {
+//     id: 2,
+//     name: 'Test 2',
+//     description: 'Description 2'
+//   },
+//   {
+//     id: 3,
+//     name: 'Test 3',
+//     description: 'Description 3'
+//   }
+// ]
+
+
+// function getItem(id){
+//   return items.find(item => item.id === id)
+// }
+
+// console.log(getItem(2))
+
+// solve similar problem but using a map
+const itemss = new Map([
+  [1, {name: 'test 1', description: 'description 1'}],
+  [2, {name: 'test 2', description: 'description 2'}],
+  [3, {name: 'test 3', description: 'description 3'}]
+])
+
+console.log(itemss.get(2))
 
 
 
