@@ -578,13 +578,11 @@
 // console.log(getItem(2))
 
 // solve similar problem but using a map
-const itemss = new Map([
-  [1, {name: 'test 1', description: 'description 1'}],
-  [2, {name: 'test 2', description: 'description 2'}],
-  [3, {name: 'test 3', description: 'description 3'}]
-])
-
-console.log(itemss.get(2))
+const itemss = new Map()
+itemss.set(1, {name: 'Christian', age: 25})
+itemss.set(2, {name: 'Daniela', age: 21})
+itemss.set(3, {name: 'Ana', age: 54})
+console.log(itemss.get(1))
 
 
 
