@@ -587,10 +587,70 @@
 
 // using Sets
 
-function removeDupes(arr){
-  return [...new Set(arr)]
+// function removeDupes(arr){
+//   return [...new Set(arr)]
+// }
+// console.log(removeDupes([1,2,3,2,4,5]))
+
+// LINKED LISTS
+// Create a linked list with three values
+// append to the linked list and prepend to the linked list
+
+class LinkedNode {
+  constructor(val){
+    this.val = val
+    this.next = null
+  }
 }
-console.log(removeDupes([1,2,3,2,4,5]))
+
+class LinkedList {
+  constructor(){
+    this.head = null
+  }
+  
+  insertFirst(val){
+    let newNode = new LinkedNode(val)
+    this.head = newNode
+    return this
+  }
+  // append to linked list
+  append(val){
+    let newNode = new LinkedNode(val)
+    if(this.head === null){
+      this.head = newNode
+    }else {
+      let current = this.head
+      while(current.next !== null){
+        current = current.next
+        console.log(current)
+      }
+      current.next = newNode
+      console.log(newNode.val + ' lol')
+    }
+    
+    return this.head.val
+  }
+
+  prepends(val){
+    let preNode = new LinkedNode(val)
+    preNode.next = this.head
+    this.head = preNode
+    return this
+  }
+
+}
+
+
+
+
+
+let newLL = new LinkedList()
+console.log(newLL.insertFirst(3))
+console.log(newLL.append(2))
+console.log(newLL.append(5))
+console.log(newLL.append(1))
+console.log(newLL.append(9))
+console.log(newLL.prepends(50))
 
 
 
