@@ -669,8 +669,11 @@ class LinkedList {
     return this
   }
 
-
-
+  remove(index){
+    let starter = this.getIndex(index - 1) // this.head will be at index we want to remove
+    starter.next = starter.next.next
+    return this
+}
 }
 
 
@@ -687,6 +690,7 @@ console.log(newLL.append(9))
 console.log(newLL.prepends(50))
 console.log(newLL.getIndex(0))
 console.log(newLL.insert(10, 2))
+console.log(newLL.remove(2))
 console.log(newLL.printList())
 
 
