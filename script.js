@@ -600,13 +600,13 @@ class LinkedNode {
   constructor(val){
     this.val = val
     this.next = null
+    this.previous = null
   }
 }
 
 class LinkedList {
   constructor(){
     this.head = null
-    
   }
   
   insertFirst(val){
@@ -617,27 +617,29 @@ class LinkedList {
   // append to linked list
   append(val){
     let newNode = new LinkedNode(val)
-    if(this.head === null){
-      this.head = newNode
-    }else {
+    // if(this.head === null){
+    //   this.head = newNode
+    // }else {
       let current = this.head
       while(current.next !== null){
         current = current.next
         console.log(current)
       }
+      newNode.previous = current
+      console.log(`the previous node value is ${newNode.previous.val}`)
       current.next = newNode
-      console.log(newNode.val + ' lol')
-    }
+      current = newNode
+    //}
     
     return this.head.val
   }
 
-  prepends(val){
-    let preNode = new LinkedNode(val)
-    preNode.next = this.head
-    this.head = preNode
-    return this
-  }
+//   prepends(val){
+//     let preNode = new LinkedNode(val)
+//     preNode.next = this.head
+//    this.head = preNode
+//     return this
+//   }
 
   printList(){
     const arr = []
@@ -649,32 +651,32 @@ class LinkedList {
     return arr
   }
 
-  getIndex(index){
-    let currentIndex = 0
-    let current = this.head
-    while(currentIndex !== index){
-      current = current.next
-      currentIndex++
-    }
-    return current
-  }
+//   getIndex(index){
+//     let currentIndex = 0
+//     let current = this.head
+//     while(currentIndex !== index){
+//       current = current.next
+//       currentIndex++
+//     }
+//     return current
+//   }
 
 
-  insert(val, index){
-    let newNode = new LinkedNode(val, index)
-    let newValHead = this.getIndex(index - 1)
-    let ogIdx = newValHead.next
-    newValHead.next = newNode
-    newNode.next = ogIdx
-    return this
-  }
+//   insert(val, index){
+//     let newNode = new LinkedNode(val, index)
+//     let newValHead = this.getIndex(index - 1)
+//     let ogIdx = newValHead.next
+//     newValHead.next = newNode
+//     newNode.next = ogIdx
+//     return this
+//   }
 
-  remove(index){
-    let starter = this.getIndex(index - 1) // this.head will be at index we want to remove
-    starter.next = starter.next.next
-    return this
-}
-}
+//   remove(index){
+//     let starter = this.getIndex(index - 1) // this.head will be at index we want to remove
+//     starter.next = starter.next.next
+//     return this
+// }
+ }
 
 
 
@@ -687,10 +689,11 @@ console.log(newLL.append(5))
 console.log(newLL.append(1))
 console.log(newLL.append(9))
 
-console.log(newLL.prepends(50))
-console.log(newLL.getIndex(0))
-console.log(newLL.insert(10, 2))
-console.log(newLL.remove(2))
+// console.log(newLL.prepends(50))
+// console.log(newLL.getIndex(0))
+// console.log(newLL.insert(10, 2))
+// console.log(newLL.remove(2))
+// console.log(newLL.remove(2))
 console.log(newLL.printList())
 
 
