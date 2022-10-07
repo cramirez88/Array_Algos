@@ -653,31 +653,33 @@ class LinkedList {
     return arr
   }
 
-//   getIndex(index){
-//     let currentIndex = 0
-//     let current = this.head
-//     while(currentIndex !== index){
-//       current = current.next
-//       currentIndex++
-//     }
-//     return current
-//   }
+  getIndex(index){
+    let currentIndex = 0
+    let current = this.head
+    while(currentIndex !== index){
+      current = current.next
+      currentIndex++
+    }
+    return current
+  }
 
 
-//   insert(val, index){
-//     let newNode = new LinkedNode(val, index)
-//     let newValHead = this.getIndex(index - 1)
-//     let ogIdx = newValHead.next
-//     newValHead.next = newNode
-//     newNode.next = ogIdx
-//     return this
-//   }
+  insert(val, index){
+    let newNode = new LinkedNode(val, index)
+    let newValHead = this.getIndex(index - 1)
+    let ogIdx = newValHead.next
+    newValHead.next = newNode
+    newNode.previous = newValHead
+    newNode.next = ogIdx
+    console.log(`the previous node is ${newNode.previous.val}`)
+    return this
+  }
 
-//   remove(index){
-//     let starter = this.getIndex(index - 1) // this.head will be at index we want to remove
-//     starter.next = starter.next.next
-//     return this
-// }
+  remove(index){
+    let starter = this.getIndex(index - 1) // this.head will be at index we want to remove
+    starter.next = starter.next.next
+    return this
+}
  }
 
 
@@ -692,8 +694,8 @@ console.log(newLL.append(1))
 console.log(newLL.append(9))
 
 console.log(newLL.prepends(50))
-// console.log(newLL.getIndex(0))
-// console.log(newLL.insert(10, 2))
+console.log(newLL.getIndex(0))
+console.log(newLL.insert(10, 4))
 // console.log(newLL.remove(2))
 // console.log(newLL.remove(2))
 console.log(newLL.printList())
