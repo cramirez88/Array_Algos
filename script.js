@@ -634,12 +634,14 @@ class LinkedList {
     return this.head.val
   }
 
-//   prepends(val){
-//     let preNode = new LinkedNode(val)
-//     preNode.next = this.head
-//    this.head = preNode
-//     return this
-//   }
+  prepends(val){
+    let preNode = new LinkedNode(val)
+    preNode.next = this.head
+    this.head.previous = preNode
+    this.head = preNode
+    console.log(`the previous value is ${this.head.previous} and the next is ${preNode.next.val}`)
+    return this
+  }
 
   printList(){
     const arr = []
@@ -689,7 +691,7 @@ console.log(newLL.append(5))
 console.log(newLL.append(1))
 console.log(newLL.append(9))
 
-// console.log(newLL.prepends(50))
+console.log(newLL.prepends(50))
 // console.log(newLL.getIndex(0))
 // console.log(newLL.insert(10, 2))
 // console.log(newLL.remove(2))
