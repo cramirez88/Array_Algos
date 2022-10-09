@@ -671,6 +671,7 @@ class LinkedList {
     newValHead.next = newNode
     newNode.previous = newValHead
     newNode.next = ogIdx
+    ogIdx.prev = newNode
     console.log(`the previous node is ${newNode.previous.val}`)
     return this
   }
@@ -680,7 +681,21 @@ class LinkedList {
     starter.next = starter.next.next
     return this
 }
- }
+
+  // reverse the linkedlist
+reverse(){  
+  let prev = null
+  let current = this.head
+  while(current !== null){
+    let temp = current.next
+    current.next = prev
+    prev = current
+    current = temp
+  }
+  return prev
+}
+
+}
 
 
 
@@ -690,15 +705,17 @@ let newLL = new LinkedList()
 console.log(newLL.insertFirst(3))
 console.log(newLL.append(2))
 console.log(newLL.append(5))
-console.log(newLL.append(1))
-console.log(newLL.append(9))
+// console.log(newLL.append(1))
+// console.log(newLL.append(9))
 
-console.log(newLL.prepends(50))
-console.log(newLL.getIndex(0))
-console.log(newLL.insert(10, 4))
+// console.log(newLL.prepends(50))
+// console.log(newLL.getIndex(1))
+// console.log(newLL.insert(10, 4))
 // console.log(newLL.remove(2))
 // console.log(newLL.remove(2))
+console.log(newLL.reverse())
 console.log(newLL.printList())
+
 
 
 
