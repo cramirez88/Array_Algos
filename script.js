@@ -719,52 +719,89 @@
 
 // STACKS IMPLEMENTATIONS
 
+// class Node {
+//   constructor(val){
+//     this.val = val
+//     this.next = null
+//   }
+// }
+
+// class Stack {
+//   constructor(){
+//     this.top = null
+//     this.bottom = null
+//     this.length = 0
+//   }
+
+//   peek(){
+//     // shows the top value (the last)
+//     return this.top
+
+//   }
+
+//   push(val){
+//     // pushes to the stack
+//     let newNode = new Node(val)
+//     let current = this.top
+//     if(this.length === 0 && this.top === null){
+//       this.top = newNode
+//       this.top.next = null
+//       this.length = 1
+//     }else{
+//       this.top = newNode
+//       this.top.next = current
+//       this.length++
+//     }
+//     return this
+//   }
+
+//   pop(){
+//     // removes last node from linked list
+//     let current = this.top
+//     if(this.length === 0) return null
+//     if (this.length === 1) return current
+//     this.top = this.top.next
+//     this.length--
+//     return current
+//   }
+// }
+
+// const myStack = new Stack()
+// console.log(myStack.push('Google'))
+// console.log(myStack.push('Facebook'))
+// console.log(myStack.push('Twitter'))
+// console.log(myStack.peek())
+// console.log(myStack.pop())
+// console.log(myStack.peek())
+
+
+// IMPLEMENTING A STACK USING ARRAYS
 class Node {
   constructor(val){
     this.val = val
-    this.next = null
   }
 }
 
 class Stack {
   constructor(){
-    this.top = null
-    this.bottom = null
-    this.length = 0
+    this.array = []
   }
-
   peek(){
-    // shows the top value (the last)
-    return this.top
-
+    return this.array[[this.array.length-1]]
   }
-
   push(val){
-    // pushes to the stack
-    let newNode = new Node(val)
-    let current = this.top
-    if(this.length === 0 && this.top === null){
-      this.top = newNode
-      this.top.next = null
-      this.length = 1
-    }else{
-      this.top = newNode
-      this.top.next = current
-      this.length++
-    }
+    this.array.push(val)
     return this
   }
-
   pop(){
-    // removes last node from linked list
-    let current = this.top
-    if(this.length === 0) return null
-    if (this.length === 1) return current
-    this.top = this.top.next
-    this.length--
-    return current
+    this.array.pop()
+    return this
   }
 }
+
+
+
+
 
 const myStack = new Stack()
 console.log(myStack.push('Google'))
@@ -773,6 +810,9 @@ console.log(myStack.push('Twitter'))
 console.log(myStack.peek())
 console.log(myStack.pop())
 console.log(myStack.peek())
+
+
+
 
 
 
