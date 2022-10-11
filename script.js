@@ -685,12 +685,12 @@ class LinkedList {
   // reverse the linkedlist
 reverse(){  
   let prev = null
-  let current = this.head
-  while(current !== null){
-    let temp = current.next
-    current.next = prev
-    prev = current
-    current = temp
+  let first = this.head
+  while (first){
+    let temp = first.next
+    first.next = prev
+    prev = first
+    first = temp
   }
   return prev
 }
