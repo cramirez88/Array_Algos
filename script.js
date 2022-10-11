@@ -596,125 +596,184 @@
 // Create a linked list with three values
 // append to the linked list and prepend to the linked list
 
-class LinkedNode {
+// class LinkedNode {
+//   constructor(val){
+//     this.val = val
+//     this.next = null
+//     this.previous = null
+//   }
+// }
+
+// class LinkedList {
+//   constructor(){
+//     this.head = null
+//   }
+  
+//   insertFirst(val){
+//     let newNode = new LinkedNode(val)
+//     this.head = newNode
+//     return this
+//   }
+//   // append to linked list
+//   append(val){
+//     let newNode = new LinkedNode(val)
+//     // if(this.head === null){
+//     //   this.head = newNode
+//     // }else {
+//       let current = this.head
+//       while(current.next !== null){
+//         current = current.next
+//         console.log(current)
+//       }
+//       newNode.previous = current
+//       console.log(`the previous node value is ${newNode.previous.val}`)
+//       current.next = newNode
+//       current = newNode
+//     //}
+    
+//     return this.head.val
+//   }
+
+//   prepends(val){
+//     let preNode = new LinkedNode(val)
+//     preNode.next = this.head
+//     this.head.previous = preNode
+//     this.head = preNode
+//     console.log(`the previous value is ${this.head.previous} and the next is ${preNode.next.val}`)
+//     return this
+//   }
+
+//   printList(){
+//     const arr = []
+//     let current = this.head
+//     while(current !== null){
+//       arr.push(current.val)
+//       current = current.next
+//     }
+//     return arr
+//   }
+
+//   getIndex(index){
+//     let currentIndex = 0
+//     let current = this.head
+//     while(currentIndex !== index){
+//       current = current.next
+//       currentIndex++
+//     }
+//     return current
+//   }
+
+
+//   insert(val, index){
+//     let newNode = new LinkedNode(val, index)
+//     let newValHead = this.getIndex(index - 1)
+//     let ogIdx = newValHead.next
+//     newValHead.next = newNode
+//     newNode.previous = newValHead
+//     newNode.next = ogIdx
+//     ogIdx.prev = newNode
+//     console.log(`the previous node is ${newNode.previous.val}`)
+//     return this
+//   }
+
+//   remove(index){
+//     let starter = this.getIndex(index - 1) // this.head will be at index we want to remove
+//     starter.next = starter.next.next
+//     return this
+// }
+
+//   // reverse the linkedlist
+// reverse(){  
+//   let prev = null
+//   let first = this.head
+//   while (first){
+//     let temp = first.next
+//     first.next = prev
+//     prev = first
+//     first = temp
+//   }
+//   return prev
+// }
+
+// }
+
+
+
+
+
+// let newLL = new LinkedList()
+// console.log(newLL.insertFirst(3))
+// console.log(newLL.append(2))
+// console.log(newLL.append(5))
+// // console.log(newLL.append(1))
+// // console.log(newLL.append(9))
+
+// // console.log(newLL.prepends(50))
+// // console.log(newLL.getIndex(1))
+// // console.log(newLL.insert(10, 4))
+// // console.log(newLL.remove(2))
+// // console.log(newLL.remove(2))
+// console.log(newLL.reverse())
+// console.log(newLL.printList())
+
+
+// STACKS IMPLEMENTATIONS
+
+class Node {
   constructor(val){
     this.val = val
     this.next = null
-    this.previous = null
   }
 }
 
-class LinkedList {
+class Stack {
   constructor(){
-    this.head = null
-  }
-  
-  insertFirst(val){
-    let newNode = new LinkedNode(val)
-    this.head = newNode
-    return this
-  }
-  // append to linked list
-  append(val){
-    let newNode = new LinkedNode(val)
-    // if(this.head === null){
-    //   this.head = newNode
-    // }else {
-      let current = this.head
-      while(current.next !== null){
-        current = current.next
-        console.log(current)
-      }
-      newNode.previous = current
-      console.log(`the previous node value is ${newNode.previous.val}`)
-      current.next = newNode
-      current = newNode
-    //}
-    
-    return this.head.val
+    this.top = null
+    this.bottom = null
+    this.length = 0
   }
 
-  prepends(val){
-    let preNode = new LinkedNode(val)
-    preNode.next = this.head
-    this.head.previous = preNode
-    this.head = preNode
-    console.log(`the previous value is ${this.head.previous} and the next is ${preNode.next.val}`)
+  peek(){
+    // shows the top value (the last)
+    return this.top
+
+  }
+
+  push(val){
+    // pushes to the stack
+    let newNode = new Node(val)
+    let current = this.top
+    if(this.length === 0 && this.top === null){
+      this.top = newNode
+      this.top.next = null
+      this.length = 1
+    }else{
+      this.top = newNode
+      this.top.next = current
+      this.length++
+    }
     return this
   }
 
-  printList(){
-    const arr = []
-    let current = this.head
-    while(current !== null){
-      arr.push(current.val)
-      current = current.next
-    }
-    return arr
-  }
-
-  getIndex(index){
-    let currentIndex = 0
-    let current = this.head
-    while(currentIndex !== index){
-      current = current.next
-      currentIndex++
-    }
+  pop(){
+    // removes last node from linked list
+    let current = this.top
+    if(this.length === 0) return null
+    if (this.length === 1) return current
+    this.top = this.top.next
+    this.length--
     return current
   }
-
-
-  insert(val, index){
-    let newNode = new LinkedNode(val, index)
-    let newValHead = this.getIndex(index - 1)
-    let ogIdx = newValHead.next
-    newValHead.next = newNode
-    newNode.previous = newValHead
-    newNode.next = ogIdx
-    ogIdx.prev = newNode
-    console.log(`the previous node is ${newNode.previous.val}`)
-    return this
-  }
-
-  remove(index){
-    let starter = this.getIndex(index - 1) // this.head will be at index we want to remove
-    starter.next = starter.next.next
-    return this
 }
 
-  // reverse the linkedlist
-reverse(){  
-  let prev = null
-  let first = this.head
-  while (first){
-    let temp = first.next
-    first.next = prev
-    prev = first
-    first = temp
-  }
-  return prev
-}
+const myStack = new Stack()
+console.log(myStack.push('Google'))
+console.log(myStack.push('Facebook'))
+console.log(myStack.push('Twitter'))
+console.log(myStack.peek())
+console.log(myStack.pop())
+console.log(myStack.peek())
 
-}
-
-
-
-
-
-let newLL = new LinkedList()
-console.log(newLL.insertFirst(3))
-console.log(newLL.append(2))
-console.log(newLL.append(5))
-// console.log(newLL.append(1))
-// console.log(newLL.append(9))
-
-// console.log(newLL.prepends(50))
-// console.log(newLL.getIndex(1))
-// console.log(newLL.insert(10, 4))
-// console.log(newLL.remove(2))
-// console.log(newLL.remove(2))
-console.log(newLL.reverse())
-console.log(newLL.printList())
 
 
 
