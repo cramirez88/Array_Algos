@@ -776,40 +776,87 @@
 
 
 // IMPLEMENTING A STACK USING ARRAYS
-class Node {
+// class Node {
+//   constructor(val){
+//     this.val = val
+//   }
+// }
+
+// class Stack {
+//   constructor(){
+//     this.array = []
+//   }
+//   peek(){
+//     return this.array[[this.array.length-1]]
+//   }
+//   push(val){
+//     this.array.push(val)
+//     return this
+//   }
+//   pop(){
+//     this.array.pop()
+//     return this
+//   }
+// }
+
+
+
+
+
+// const myStack = new Stack()
+// console.log(myStack.push('Google'))
+// console.log(myStack.push('Facebook'))
+// console.log(myStack.push('Twitter'))
+// console.log(myStack.peek())
+// console.log(myStack.pop())
+// console.log(myStack.peek())
+
+// QUEUE IMPLEMENTATION
+
+class Node{
   constructor(val){
     this.val = val
+    this.next = null
   }
 }
 
-class Stack {
+class Queue{
   constructor(){
-    this.array = []
+    this.first = null
+    this.last = null
+    this.length = 0
   }
+
   peek(){
-    return this.array[[this.array.length-1]]
+    return this.first
   }
-  push(val){
-    this.array.push(val)
+
+  enqueue(val){
+    // adds to the front
+    let newNode = new Node(val)
+    if(this.length === 0){
+      this.first = newNode
+      this.last = newNode
+      // this.length++
+    }
+    this.last.next = newNode
+    this.last = newNode
+    this.length++
     return this
   }
-  pop(){
-    this.array.pop()
-    return this
+
+  dequeue(){
+    // removes from the front
+    
   }
 }
 
 
-
-
-
-const myStack = new Stack()
-console.log(myStack.push('Google'))
-console.log(myStack.push('Facebook'))
-console.log(myStack.push('Twitter'))
-console.log(myStack.peek())
-console.log(myStack.pop())
-console.log(myStack.peek())
+const myQueue = new Queue()
+console.log(myQueue.enqueue('Christian'))
+console.log(myQueue.enqueue('Daniela'))
+console.log(myQueue.enqueue('Ana'))
+console.log(myQueue.peek())
 
 
 
