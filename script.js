@@ -847,7 +847,11 @@ class Queue{
 
   dequeue(){
     // removes from the front
-    
+    if(this.length === 0) return null
+    if(this.length === 1) return this.first
+    this.first = this.first.next
+    this.length--
+    return this
   }
 }
 
@@ -856,6 +860,8 @@ const myQueue = new Queue()
 console.log(myQueue.enqueue('Christian'))
 console.log(myQueue.enqueue('Daniela'))
 console.log(myQueue.enqueue('Ana'))
+console.log(myQueue.dequeue())
+console.log(myQueue.dequeue())
 console.log(myQueue.peek())
 
 
