@@ -813,57 +813,91 @@
 
 // QUEUE IMPLEMENTATION
 
-class Node{
-  constructor(val){
-    this.val = val
-    this.next = null
-  }
-}
+// class Node{
+//   constructor(val){
+//     this.val = val
+//     this.next = null
+//   }
+// }
+
+// class Queue{
+//   constructor(){
+//     this.first = null
+//     this.last = null
+//     this.length = 0
+//   }
+
+//   peek(){
+//     return this.first
+//   }
+
+//   enqueue(val){
+//     // adds to the front
+//     let newNode = new Node(val)
+//     if(this.length === 0){
+//       this.first = newNode
+//       this.last = newNode
+//       // this.length++
+//     }
+//     this.last.next = newNode
+//     this.last = newNode
+//     this.length++
+//     return this
+//   }
+
+//   dequeue(){
+//     // removes from the front
+//     if(this.length === 0) return null
+//     if(this.length === 1) return null
+//     this.first = this.first.next
+//     this.length--
+//     return this
+//   }
+// }
+
+
+// const myQueue = new Queue()
+// console.log(myQueue.enqueue('Christian'))
+// console.log(myQueue.enqueue('Daniela'))
+// console.log(myQueue.enqueue('Ana'))
+// console.log(myQueue.dequeue())
+// console.log(myQueue.dequeue())
+// console.log(myQueue.peek())
+
 
 class Queue{
   constructor(){
-    this.first = null
-    this.last = null
-    this.length = 0
+    this.first = []
+    this.last = []
+  }
+  push(val){
+    for(let i = 0; i < this.first.length; i++){
+      this.last.push(this.first.pop())
+    }
+    this.last.push(val)
+    return this
+  }
+
+  pop(){
+    for(let i = 0; i < this.last.length; i++){
+      this.first.push(this.last.pop())
+    }
+    this.first.pop()
+    return this
   }
 
   peek(){
-    return this.first
-  }
-
-  enqueue(val){
-    // adds to the front
-    let newNode = new Node(val)
-    if(this.length === 0){
-      this.first = newNode
-      this.last = newNode
-      // this.length++
-    }
-    this.last.next = newNode
-    this.last = newNode
-    this.length++
-    return this
-  }
-
-  dequeue(){
-    // removes from the front
-    if(this.length === 0) return null
-    if(this.length === 1) return this.first
-    this.first = this.first.next
-    this.length--
-    return this
+    return this.last[0]
   }
 }
 
-
 const myQueue = new Queue()
-console.log(myQueue.enqueue('Christian'))
-console.log(myQueue.enqueue('Daniela'))
-console.log(myQueue.enqueue('Ana'))
-console.log(myQueue.dequeue())
-console.log(myQueue.dequeue())
+console.log(myQueue.push(1))
+console.log(myQueue.push(2))
+console.log(myQueue.push(3))
+console.log(myQueue.push(4))
+console.log(myQueue.pop())
 console.log(myQueue.peek())
-
 
 
 
