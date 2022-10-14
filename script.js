@@ -865,43 +865,102 @@
 // console.log(myQueue.peek())
 
 
-class Queue{
-  constructor(){
-    this.first = []
-    this.last = []
-  }
-  push(val){
-    for(let i = 0; i < this.first.length; i++){
-      this.last.push(this.first.pop())
-    }
-    this.last.push(val)
-    return this
-  }
+// class Queue{
+//   constructor(){
+//     this.first = []
+//     this.last = []
+//   }
+//   push(val){
+//     for(let i = 0; i < this.first.length; i++){
+//       this.last.push(this.first.pop())
+//     }
+//     this.last.push(val)
+//     return this
+//   }
 
-  pop(){
-    for(let i = 0; i < this.last.length; i++){
-      this.first.push(this.last.pop())
-    }
-    this.first.pop()
-    return this
-  }
+//   pop(){
+//     for(let i = 0; i < this.last.length; i++){
+//       this.first.push(this.last.pop())
+//     }
+//     this.first.pop()
+//     return this
+//   }
 
-  peek(){
-    return this.last[0]
+//   peek(){
+//     return this.last[0]
+//   }
+// }
+
+// const myQueue = new Queue()
+// console.log(myQueue.push(1))
+// console.log(myQueue.push(2))
+// console.log(myQueue.push(3))
+// console.log(myQueue.push(4))
+// console.log(myQueue.pop())
+// console.log(myQueue.peek())
+
+
+// BINARY SEARCH TREES
+
+
+class Node{
+  constructor(val){
+    this.right = null
+    this.left = null
+    this.val = val
   }
 }
 
-const myQueue = new Queue()
-console.log(myQueue.push(1))
-console.log(myQueue.push(2))
-console.log(myQueue.push(3))
-console.log(myQueue.push(4))
-console.log(myQueue.pop())
-console.log(myQueue.peek())
+class BinarySearchTree{
+  constructor(){
+    this.root = null
+  }
+
+  insert(val){
+    let newNode = new Node(val)
+    let currentNode = this.root
+    if(this.root === null){
+      this.root = newNode
+    }
+    while(currentNode){
+      if(val > currentNode.val){
+        if(currentNode.right === null){
+          currentNode.right = newNode
+          return this
+        }
+        currentNode = currentNode.right
+      }else{
+        if(currentNode.left === null){
+          currentNode.left = newNode
+          return this
+        }
+        currentNode = currentNode.left
+      }
+    }
+  }
+
+  // lookup(){
+
+  // }
+}
+
+function traverse(node){
+  const tree = { val: node.val}
+  tree.left = node.left === null ? null : traverse(node.left)
+  tree.right = node.right === null ? null :
+  traverse(node.right)
+  return tree
+}
 
 
-
-
+const binaryTree = new BinarySearchTree()
+console.log(binaryTree.insert(9))
+console.log(binaryTree.insert(4))
+console.log(binaryTree.insert(20))
+console.log(binaryTree.insert(170))
+console.log(binaryTree.insert(15))
+console.log(binaryTree.insert(1))
+JSON.stringify(traverse(binaryTree.root))
 
 
 
