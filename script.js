@@ -918,39 +918,47 @@ class BinarySearchTree{
 
   insert(val){
     let newNode = new Node(val)
-    let currentNode = this.root
     if(this.root === null){
       this.root = newNode
-    }
-    while(currentNode){
-      if(val > currentNode.val){
-        if(currentNode.right === null){
-          currentNode.right = newNode
-          return this
+    }else{
+      let currentNode = this.root
+      while(currentNode){
+        if(val > currentNode.val){
+          if(currentNode.right === null){
+            currentNode.right = newNode
+            return this
+          }
+          currentNode = currentNode.right
+        }else{
+          if(currentNode.left === null){
+            currentNode.left = newNode
+            return this
+          }
+          currentNode = currentNode.left
         }
-        currentNode = currentNode.right
-      }else{
-        if(currentNode.left === null){
-          currentNode.left = newNode
-          return this
-        }
-        currentNode = currentNode.left
       }
     }
+ 
+  
   }
 
-  // lookup(){
-
-  // }
+  lookup(val){
+    if (!this.root) return false
+    let current = this.root
+    while(current){
+      if(val < current.val){
+        current = current.left
+      }else if(val > current.val){
+        current = current.right
+      }else if(current.val === val){
+        return current
+      }
+    }
+    return false
+  }
 }
 
-function traverse(node){
-  const tree = { val: node.val}
-  tree.left = node.left === null ? null : traverse(node.left)
-  tree.right = node.right === null ? null :
-  traverse(node.right)
-  return tree
-}
+
 
 
 const binaryTree = new BinarySearchTree()
@@ -960,7 +968,8 @@ console.log(binaryTree.insert(20))
 console.log(binaryTree.insert(170))
 console.log(binaryTree.insert(15))
 console.log(binaryTree.insert(1))
-JSON.stringify(traverse(binaryTree.root))
+console.log(binaryTree.lookup(20))
+
 
 
 
